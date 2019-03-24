@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="Boxshadow1 rounded p-2">
+    <form #loginUser = "ngForm" class="container" (ngSubmit)="doLogin(loginUser.value)">
+      <div >
+        <div class="row">
+          <div class="col-5">
+            <label id="lblEmail" class="float-left m-3">Email Address:</label>
+          </div>
+          <div class="col-7">
+            <input id="txtEmail" type="text" name="email" class="m-3 float-left" ngModel>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5"><label id="lblPassword" class="float-left m-3">Password: </label></div>
+          <div class="col-7"><input type="password" id="txtPassword" name="passWord" ngModel class="m-3 float-left"></div>
+        </div>
+      </div>
+      <div class="row ">
+        <div class="col-5"><button id="btnLogin" class="btn-info m-1 float-right">Login</button> </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
