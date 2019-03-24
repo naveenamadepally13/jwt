@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var jwt = require('jsonwebtoken');
 
 router.get('/api', (req, res)=>{
   res.json({
@@ -7,16 +8,12 @@ router.get('/api', (req, res)=>{
   });
 });
 
-// const user={
-//     email:'nehanavgale0604@gmail.com',
-//     password:'123'
-// };
-
-router.post('/api/loginuser', (req,res)=>{
+router.post('/loginuser', (req,res)=>{
+  console.log("In Login USER");
   const user = {
     email: req.body.email,
     password: req.body.password
-  }
+  };
 
   console.log(req.body);
 
@@ -26,7 +23,8 @@ router.post('/api/loginuser', (req,res)=>{
 
 });
 
-router.post('/api/posts/', verifyToken, (req,res)=>{
+router.post('/auth', verifyToken, (req,res)=>{
+  console.log("auth");
   jwt.verify(req.token, 'secretkey', (err,authData)=>{
     if(err){
       res.sendStatus(403);
@@ -41,7 +39,8 @@ router.post('/api/posts/', verifyToken, (req,res)=>{
 });
 
 function verifyToken(req,res,next){
-  const bearerHeader = req.headers['authorization'];
+  // console.log(req.body);
+  const bearerHeader = req.body.headers['authorization'];
 
   if(typeof bearerHeader !== "undefined"){
 

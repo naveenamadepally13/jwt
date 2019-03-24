@@ -1,3 +1,29 @@
-<p>
-  home works!
-</p>
+<div class="container emp-profile">
+  <form #authUser = "ngForm" class="container" (ngSubmit)="doAuth()">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="profile-img">
+          <img src=".../../assets/images/gal.jpg" alt=""/>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="profile-head">
+          <h5>
+            Gal Gadot
+          </h5>
+          <h5>
+            nav@gmail.com
+          </h5>
+          <h6>
+            Actor
+          </h6>
+          <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+
+        </div>
+      </div>
+      <div class="col-md-3">
+        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Authenticate to View details"/>
+      </div>
+    </div>
+  </form>
+</div>
